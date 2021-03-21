@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab1_Rozek.Rest
 {
@@ -26,6 +27,22 @@ namespace Lab1_Rozek.Rest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+        }
+
+        // Configuration with DB
+
+        public void ConfigueServices(IServiceCollection services)
+        {
+	        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var connectionString = Configuration.GetConnectionString("orozekdatabase");
+            services.AddDbContext<AzureDbContext>(options =>
+            {
+                
+            });
+            services.AddDbContext<AzureDbContext>(options =>
+            {
+               options.UseSqlServer(connectionString);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
