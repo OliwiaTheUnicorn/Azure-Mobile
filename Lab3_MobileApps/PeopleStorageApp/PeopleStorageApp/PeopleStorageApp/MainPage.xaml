@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleStorageApp.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="People Storage App!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image x:Name="imgPhoto" />
+            <StackLayout Grid.Row="1">
+                <Button x:Name="btnCamera" Text="Take a Photo"/>
+                <Entry x:Name="entFirstName" Placeholder="First name" />
+                <Entry x:Name="entLastName" Placeholder="Last name" />
+                <Entry x:Name="entPhoneNumber" Placeholder="Phone number" Keyboard="Telephone" />
+            </StackLayout>
+            <StackLayout Grid.Row="2" VerticalOptions="EndAndExpand">
+                <Button x:Name="btnSave" Text="Save data" Grid.Row="2"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
