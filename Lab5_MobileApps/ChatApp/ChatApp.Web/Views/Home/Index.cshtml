@@ -1,0 +1,19 @@
+﻿@model ChatApp.Web.Models.SigninVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Index">
+    <div class="row">
+        <div class="col-md-12 text-danger font-weight-bold">
+            @Html.ValidationSummary()
+        </div>
+        <div class="col-md-6">
+            <input placeholder="Enter your name" asp-for="UserName" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary"> Sign in</button>
+        </div>
+    </div>
+</form>
